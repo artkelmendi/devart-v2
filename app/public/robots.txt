@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /app
-Sitemap: https://devart.higgsfield.app/sitemap.xml
+Sitemap: https://artkelmendi.github.io/devart-v2/sitemap.xml

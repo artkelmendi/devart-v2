@@ -1,7 +1,7 @@
 {
-  "og_title": "devart. | Art.",
-  "og_description": "Art. Developer and engineer. Embedded systems, C, C++, CI/CD, testing and QA, with a curiosity for creative frontend work.",
+  "og_title": "Art Kelmendi — Embedded Systems & Creative Developer | devart.",
+  "og_description": "Portfolio of Art Kelmendi: embedded systems, C and C++, CI/CD, testing and QA, plus expressive frontend experiments and websites.",
   "favicon_url": "/favicon.svg",
-  "og_image_url": "https://devart.higgsfield.app/assets/og.webp",
-  "marketplace_cover_url": "https://devart.higgsfield.app/assets/cover.webp"
+  "og_image_url": "https://artkelmendi.github.io/devart-v2/assets/og.webp",
+  "marketplace_cover_url": "https://artkelmendi.github.io/devart-v2/assets/cover.webp"
 }

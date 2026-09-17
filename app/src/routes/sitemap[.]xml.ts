@@ -4,13 +4,13 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async ({ request }) => {
-        const origin = new URL(request.url).origin;
+        const siteUrl = "https://artkelmendi.github.io/devart-v2/";
         const today = new Date().toISOString().split("T")[0];
         const xml = [
           '<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
           "  <url>",
-          `    <loc>${origin}/</loc>`,
+          `    <loc>${siteUrl}</loc>`,
           `    <lastmod>${today}</lastmod>`,
           "    <changefreq>weekly</changefreq>",
           "    <priority>1.0</priority>",
