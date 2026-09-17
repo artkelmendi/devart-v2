@@ -340,9 +340,11 @@ export function ScrollScrub({
         video.className = "scroll-scrub__video";
         video.muted = true;
         video.playsInline = true;
+        video.disableRemotePlayback = true;
         video.preload = "auto";
         video.setAttribute("muted", "");
         video.setAttribute("playsinline", "");
+        video.setAttribute("webkit-playsinline", "");
         video.src = objectUrl;
 
         video.addEventListener(
@@ -401,6 +403,7 @@ export function ScrollScrub({
         segment.layer.append(video);
         segment.objectUrl = objectUrl;
         segment.video = video;
+        video.load();
       } catch (error) {
         if (
           request.signal.aborted ||
@@ -450,7 +453,7 @@ export function ScrollScrub({
         segment.layer.style.zIndex = index === currentIndex ? "2" : "1";
 
         if (
-          (!openingImage || y > 8) &&
+          (index === 0 || !openingImage || y > 8) &&
           y > segment.start - 1.5 * viewportHeight &&
           y < segment.end + 1.5 * viewportHeight
         ) {
