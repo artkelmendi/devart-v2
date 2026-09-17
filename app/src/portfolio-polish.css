@@ -8,7 +8,7 @@
 .hero-specialties span { padding-bottom: 8px; border-bottom: 1px solid var(--da-accent); }
 .hero-explore { display: flex; align-items: center; gap: 40px; margin-top: 16px; }
 .scroll-instruction { display: flex; align-items: center; gap: 12px; font: 10px var(--da-mono); color: var(--da-muted); }
-.scroll-instruction > span { display: inline-block; animation: scroll-cue 2s ease-in-out 4; }
+.scroll-instruction > .ui-arrow { animation: scroll-cue 2s ease-in-out 4; }
 .hero-orbit { position: absolute; right: 5%; top: -120px; width: 150px; height: 150px; display: grid; place-items: center; }
 .hero-orbit svg { position: absolute; inset: 0; width: 100%; fill: none; stroke: var(--da-accent); stroke-width: .6; animation: orbit-turn 24s linear 2; }
 .hero-orbit span { font: 8px/1.8 var(--da-mono); text-align: center; letter-spacing: .1em; }
@@ -57,6 +57,7 @@
 .arrival-rule::after { content: ""; display: block; height: 100%; background: var(--da-accent); animation: arrival-line 1.2s ease-in-out infinite; transform-origin: left; }
 .arrival p, .arrival button { font: 11px var(--da-mono); color: var(--da-muted); }
 .arrival button { position: absolute; bottom: 40px; background: transparent; border: 0; padding: 14px; cursor: pointer; }
+.arrival button { display: inline-flex; align-items: center; gap: 8px; }
 .arrival button:hover { color: var(--da-ink); }
 .devart.devart .scroll-scrub__title, .devart.devart .static-hero h1 { font-size: clamp(86px, 14vw, 215px); letter-spacing: -.08em; }
 .devart.devart .scroll-scrub__title, .devart.devart .static-hero h1 {
@@ -80,6 +81,11 @@
 @keyframes arrival-header { from { opacity: 0; } to { opacity: 1; } }
 @keyframes arrival-line { 0% { transform: scaleX(0); } 60%,100% { transform: scaleX(1); } }
 @media (max-width: 600px) { .devart.devart .scroll-scrub__title, .devart.devart .static-hero h1 { font-size: clamp(70px, 20vw, 120px); } }
+@media (max-width: 860px) {
+  .devart.devart .scroll-scrub__title { text-shadow: 0 2px 10px color-mix(in srgb, var(--da-bg) 42%, transparent); }
+  .devart.devart .scroll-scrub__title::before { background: radial-gradient(ellipse at 32% 62%, color-mix(in srgb, var(--da-bg) 26%, transparent), transparent 72%); }
+  .devart .scroll-scrub__title .brand-wordmark { filter: drop-shadow(0 4px 12px color-mix(in srgb, var(--da-bg) 38%, transparent)); }
+}
 @media (prefers-reduced-motion: reduce) { .arrival { display: none; } .devart.has-arrived * { animation: none !important; } }
 .scroll-scrub__opening {
   position: absolute;

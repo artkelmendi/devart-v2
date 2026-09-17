@@ -4,7 +4,6 @@ Add-Type -AssemblyName System.Drawing
 
 $outputPath = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\$Output"))
 $background = [System.Drawing.Color]::FromArgb(255, 23, 25, 28)
-$rose = [System.Drawing.Color]::FromArgb(255, 200, 142, 156)
 $ivory = [System.Drawing.Color]::FromArgb(255, 241, 241, 238)
 
 function New-RoundedPath([float]$size, [float]$radius) {
@@ -69,9 +68,8 @@ function Export-Icon([int]$size, [string]$name, [float]$markWidth, [bool]$maskab
   $right.CloseFigure()
   $right.Transform($matrix)
 
-  $roseBrush = [System.Drawing.SolidBrush]::new($rose)
   $ivoryBrush = [System.Drawing.SolidBrush]::new($ivory)
-  $graphics.FillPath($roseBrush, $center)
+  $graphics.FillPath($ivoryBrush, $center)
   $graphics.FillPath($ivoryBrush, $left)
   $graphics.FillPath($ivoryBrush, $right)
   $bitmap.Save((Join-Path $outputPath $name), [System.Drawing.Imaging.ImageFormat]::Png)
@@ -79,7 +77,6 @@ function Export-Icon([int]$size, [string]$name, [float]$markWidth, [bool]$maskab
   $center.Dispose()
   $left.Dispose()
   $right.Dispose()
-  $roseBrush.Dispose()
   $ivoryBrush.Dispose()
   $brush.Dispose()
   $graphics.Dispose()

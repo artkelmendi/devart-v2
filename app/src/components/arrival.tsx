@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrandMark, BrandWordmark } from "./brand-mark";
 import { assetUrl } from "../lib/asset-url";
+import { UiArrow } from "./ui-arrow";
 
 /** A bounded first-visit introduction, released when the opening art is ready. */
 export function useArrival() {
@@ -29,6 +30,6 @@ export function Arrival({ ready, skip }: { ready: boolean; skip: () => void }) {
     <div className="arrival-brand" aria-hidden="true"><BrandMark/><BrandWordmark/></div>
     <div className="arrival-rule" aria-hidden="true" />
     <p role="status">Engineering meets imagination.</p>
-    <button type="button" onClick={skip} tabIndex={ready ? -1 : 0}>Skip intro <span aria-hidden="true">↗</span></button>
+    <button type="button" onClick={skip} tabIndex={ready ? -1 : 0}>Skip intro <UiArrow direction="up-right"/></button>
   </div>;
 }

@@ -1,6 +1,7 @@
 import { HeroDetails } from "./project-showcase";
 import { BrandWordmark } from "./brand-mark";
 import { assetUrl } from "../lib/asset-url";
+import { UiArrow } from "./ui-arrow";
 export function JourneyChapters({ illustrated = false }: { illustrated?: boolean }) {
   return <div className="journey-chapters">
     {!illustrated && <div className="hero-action-row"><HeroDetails/></div>}
@@ -13,7 +14,7 @@ export function JourneyChapters({ illustrated = false }: { illustrated?: boolean
       {illustrated && <figure className="chapter-still"><img src={assetUrl("/assets/material.webp")} alt="An ordered assembly of graphite circuits and silver components" loading="lazy" width="1600" height="1062"/><figcaption>Every layer has a purpose.</figcaption></figure>}
     </section>
     <section className="chapter chapter-play" id="frontend">
-      <div className="chapter-content"><h2>Serious engineering.<br/><em>Room to play.</em></h2><p>In my free time, I explore the other side of software: expressive websites, thoughtful interactions and the little details you feel.</p><a className="chapter-work" href="#work">View work <span aria-hidden="true">↓</span></a></div>
+      <div className="chapter-content"><h2>Serious engineering.<br/><em>Room to play.</em></h2><p>In my free time, I explore the other side of software: expressive websites, thoughtful interactions and the little details you feel.</p><a className="chapter-work" href="#work">View work <UiArrow direction="down"/></a></div>
       {illustrated && <figure className="chapter-still"><img src={assetUrl("/assets/frontend-still.webp")} alt="Smoked glass interface-like panels connected by a sculptural copper ribbon" loading="lazy" width="2048" height="1536"/><figcaption>Structure, with a little imagination.</figcaption></figure>}
     </section>
   </div>;

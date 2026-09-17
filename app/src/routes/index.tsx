@@ -9,6 +9,7 @@ import { ProjectShowcase, ProcessNotes } from "@/components/project-showcase";
 import { useSectionReveals } from "@/components/portfolio-motion";
 import { scrollScrubScenes, scrollScrubTheme } from "@/scroll-scrub-scenes";
 import { assetUrl } from "@/lib/asset-url";
+import { UiArrow } from "@/components/ui-arrow";
 
 export const Route = createFileRoute("/")({component:Index});
 function Index(){
@@ -71,6 +72,6 @@ function Index(){
     <div className="closing-art" aria-hidden="true"><img src={assetUrl("/assets/material.webp")} alt="" loading="lazy"/><span>devart.</span></div>
    </section>
   </main>
-  <footer><span>© {new Date().getFullYear()} devart. / Art.</span><p>Built with logic. Finished with curiosity.</p><a className="back-top" href="#top" aria-label="Back to top">↑</a></footer>
+  <footer><span>© {new Date().getFullYear()} devart. / Art.</span><p>Built with logic. Finished with curiosity.</p><a className="back-top" href="#top" aria-label="Back to top"><UiArrow direction="up"/></a></footer>
  </div>
 }
