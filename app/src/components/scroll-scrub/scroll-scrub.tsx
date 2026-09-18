@@ -268,7 +268,9 @@ export function ScrollScrub({
     const layout = () => {
       const pageY = window.scrollY || window.pageYOffset;
       rootTop = root.getBoundingClientRect().top + pageY;
-      viewportHeight = window.innerHeight;
+      // Match the actual sticky stage, including its stable mobile height.
+      viewportHeight = root.querySelector<HTMLElement>(".scroll-scrub__stage")
+        ?.getBoundingClientRect().height ?? window.innerHeight;
       layoutWidth = window.innerWidth;
 
       for (const segment of runtime) {
@@ -673,7 +675,7 @@ export function ScrollScrub({
       <div className="scroll-scrub__story">
         {segments.map((segment) => {
           const bandStyle: CSSProperties = {
-            minHeight: `${Math.max(segment.weight, 0.2) * 100}dvh`,
+            minHeight: `calc(${Math.max(segment.weight, 0.2)} * var(--ss-viewport))`,
           };
 
           if (segment.kind === "connector") {
