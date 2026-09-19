@@ -27,12 +27,36 @@ export function usePortfolioMotion(enabled: boolean) {
       lerp: 0.085,
       smoothWheel: true,
       syncTouch: false,
+      overscroll: false,
       anchors: { offset: -90 },
       stopInertiaOnNavigate: true,
     });
+    let wheelDirection = 0;
+    const stopOpposingMomentum = ({
+      deltaY,
+      event,
+    }: {
+      deltaY: number;
+      event: WheelEvent | TouchEvent;
+    }) => {
+      if (!event.type.includes("wheel") || deltaY === 0) return;
+      const nextDirection = Math.sign(deltaY);
+      if (
+        wheelDirection !== 0 &&
+        nextDirection !== wheelDirection &&
+        lenis.isScrolling === "smooth"
+      ) {
+        // A trackpad reversal should take control immediately instead of first
+        // finishing the momentum left by the previous direction.
+        lenis.scrollTo(lenis.scroll, { immediate: true, force: true });
+      }
+      wheelDirection = nextDirection;
+    };
+    lenis.on("virtual-scroll", stopOpposingMomentum);
     scroll.current = lenis;
     return () => {
       scroll.current = null;
+      lenis.off("virtual-scroll", stopOpposingMomentum);
       lenis.destroy();
     };
   }, [enabled]);

@@ -186,8 +186,8 @@
 
 /* devart: a precision instrument with room for expression. */
 :root {--da-bg:#17191c;--da-surface:#202328;--da-ink:#f1f1ee;--da-muted:#acaeb2;--da-accent:#c88e9c;--da-line:#3b3e43;--da-font:'Outfit',sans-serif;--da-mono:'IBM Plex Mono',monospace}
-html{scroll-behavior:smooth;scroll-padding-top:90px;background:var(--da-bg)}
-body{margin:0;background:var(--da-bg);color:var(--da-ink);font-family:var(--da-font);-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;scroll-padding-top:90px;background:var(--da-bg);overscroll-behavior-y:none}
+body{margin:0;background:var(--da-bg);color:var(--da-ink);font-family:var(--da-font);-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
 *{box-sizing:border-box}::selection{background:var(--da-accent);color:var(--da-bg)}
 a{color:inherit;text-decoration:none}button{font:inherit}button,a{-webkit-tap-highlight-color:transparent}
 :focus-visible{outline:2px solid var(--da-accent);outline-offset:6px}
